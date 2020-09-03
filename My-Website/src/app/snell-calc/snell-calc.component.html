@@ -1,0 +1,24 @@
+
+<html>
+<h3>with this tool, you can explore the relationship between transparent materials and light!</h3>
+<form id="form" [formGroup]="calcForm"  (ngSubmit)="onSubmit()">
+    <div id="a1">
+        <input type="text" placeholder="Angle of Incidence"   formControlName="a1">
+    </div>
+    <div id="r1">
+        <input type="text" placeholder="Refractive index 1" formControlName="r1">
+    </div>
+    <div id="a2">
+        <input type="text" placeholder="Angle of Refraction" formControlName="a2">
+    </div>
+    <div id="r2">
+        <input type="text" placeholder="Refractive index 2" formControlName="r2">
+    </div>
+
+    <div>
+        <input type="submit" value="Compute!">
+    </div>
+</form>
+
+<h3>check console(ctrl+shift+i) to see the results :P</h3>
+</html>
