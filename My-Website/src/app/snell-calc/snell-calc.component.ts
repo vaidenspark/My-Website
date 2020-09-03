@@ -20,17 +20,23 @@ export class SnellCalcComponent implements OnInit {
 
   onSubmit(){
 
-    const a1 = this.calcForm.get('a1').value;
-    const r1 = this.calcForm.get('r1').value;
-    const a2 = this.calcForm.get('a2').value;
-    const r2 = this.calcForm.get('r1').value;
-    if ((this.calcForm.get('a1').value === '') && (this.calcForm.get('r1').value !== '') && (this.calcForm.get('a2').value !== '') &&
-    (this.calcForm.get('r2').value !== '')){
+    let a1 = this.calcForm.get('a1').value;
+    let r1 = this.calcForm.get('r1').value;
+    let a2 = this.calcForm.get('a2').value;
+    let r2 = this.calcForm.get('r1').value;
+
+    const isCalcA1 = (a1 === '') && (r1 !== '') && (a2 !== '') &&
+    (r2 !== '');
+    
+    const isCalcA2 = (a1 !== '') && (r1 !== '') && (a2 === '') &&
+    (r2 !== '');
+    if (isCalcA1){
+      this.calcForm.get('a1').setValue(this.calcServ.findA1(r1, a2, r2));
       console.log(this.calcServ.findA1(r1, a2, r2));
 
     }
-    if ((this.calcForm.get('a1').value !== '') && (this.calcForm.get('r1').value !== '') && (this.calcForm.get('a2').value === '') &&
-    (this.calcForm.get('r2').value !== '')){
+    if (isCalcA2){
+      this.calcForm.get('a2').setValue(this.calcServ.findA2(a1, r1, r2));
       console.log(this.calcServ.findA2(a1, r1, r2));
 
     }
