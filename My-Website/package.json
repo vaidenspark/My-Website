@@ -19,9 +19,11 @@
     "@angular/platform-browser": "~10.0.14",
     "@angular/platform-browser-dynamic": "~10.0.14",
     "@angular/router": "~10.0.14",
+    "@types/mathjs": "^6.0.5",
     "bootstrap": "^4.5.2",
     "igniteui-angular": "^10.1.2",
     "injector": "^0.5.1",
+    "mathjs": "^7.2.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
