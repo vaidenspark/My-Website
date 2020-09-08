@@ -13,7 +13,7 @@ import * as math from 'mathjs';
     `
 })
 export class SnellCalcComponent implements OnInit {
-  validator = '';
+  validator = 'All entries must be numerical. Refractive Index should be between 0 and 2 Angles are in degrees, between 0 and 90';
 
   constructor(private calcServ: CalcServService) { }
   calcForm = new FormGroup({
@@ -27,10 +27,16 @@ export class SnellCalcComponent implements OnInit {
 
   }
   onSubmit(): void{
-        const a1 = this.calcForm.get('a1').value;
-        const r1 = this.calcForm.get('r1').value;
-        const a2 = this.calcForm.get('a2').value;
-        const r2 = this.calcForm.get('r2').value;
+    // check if form input is a number. If true, set value for processing
+    // if false, set error message
+        const a1 = isNaN(this.calcForm.get('a1').value) ?
+        this.validator = 'all entries must be numerical' : this.calcForm.get('a1').value ;
+        const r1 = isNaN(this.calcForm.get('r1').value) ?
+        this.validator = 'all entries must be numerical' : this.calcForm.get('r1').value ;
+        const a2 = isNaN(this.calcForm.get('a2').value) ?
+        this.validator = 'all entries must be numerical' : this.calcForm.get('a2').value ;
+        const r2 = isNaN(this.calcForm.get('r2').value) ?
+        this.validator = 'all entries must be numerical' : this.calcForm.get('r2').value ;
 
 
         const isCalcA1 = (a1 === '') && (r1 !== '') && (a2 !== '') &&
