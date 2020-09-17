@@ -8,6 +8,12 @@ import { SnellCalcComponent } from './snell-calc/snell-calc.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModule } from './material/material.module';
+
+
+
 
 
 
@@ -16,13 +22,14 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     NavBarComponent,
     SnellCalcComponent
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

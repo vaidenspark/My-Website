@@ -1,27 +1,36 @@
 
-<html>
-<h3>with this tool, you can explore the relationship between transparent materials and light!</h3>
+<h3 class="redthings">with this tool, you can explore the relationship between transparent materials and light!</h3>
 <form id="form" [formGroup]="calcForm"  (ngSubmit)="onSubmit()">
-    <div id="a1">
-        <input type="text" placeholder="Angle of Incidence"   formControlName="a1">
-    </div>
-    <div id="r1">
-        <input type="text" placeholder="Refractive index 1" formControlName="r1">
-    </div>
-    <div id="a2">
-        <input type="text" placeholder="Angle of Refraction" formControlName="a2">
-    </div>
-    <div id="r2">
-        <input type="text" placeholder="Refractive index 2" formControlName="r2">
-    </div>
 
-    <div>
-        <input type="submit" value="Compute!">
-    </div>
-    <div>
-        <h3>{{validator}}</h3>
-    </div>
+    <mat-form-field id="a1" class="example-full-width">
+        <mat-label>Input</mat-label>
+        <input matInput placeholder="yeet" formControlName="a1">
+    </mat-form-field>
 
+    <mat-form-field id="r1">
+        <input matInput type="text" placeholder="Refractive index 1" formControlName="r1">
+    </mat-form-field>
+
+
+
+    <mat-form-field id="a2">
+        <input matInput type="text" placeholder="Angle of Refraction" formControlName="a2">
+    </mat-form-field>
+
+
+
+    <mat-form-field id="r2">
+        <input matInput type="text" placeholder="Refractive index 2" formControlName="r2">
+    </mat-form-field>
+
+
+
+    <button color="primary" type="submit" mat-raised-button>Compute!</button>
+    
+
+
+    <h3>{{validator}}</h3>
 </form>
 
-</html>
+
+

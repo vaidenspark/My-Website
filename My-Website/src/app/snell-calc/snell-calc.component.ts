@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { CalcServService } from '../shared/calc-serv.service';
 import * as math from 'mathjs';
 
@@ -7,24 +7,23 @@ import * as math from 'mathjs';
 @Component({
   selector: 'app-snell-calc',
   templateUrl: './snell-calc.component.html',
-  styleUrls: ['./snell-calc.component.scss'],
-  template: `
-    <h3>{{validator}}</h3>
-    `
+  styleUrls: ['./snell-calc.component.scss']
 })
 export class SnellCalcComponent implements OnInit {
   validator = 'All entries must be numerical. Refractive Index should be between 0 and 2 Angles are in degrees, between 0 and 90';
+  calcForm: FormGroup;
 
-  constructor(private calcServ: CalcServService) { }
-  calcForm = new FormGroup({
-    a1: new FormControl(''),
-    r1: new FormControl(''),
-    a2: new FormControl(''),
-    r2: new FormControl('')
+  constructor(private calcServ: CalcServService) {
+    this.calcForm =  new FormGroup({
+      a1: new FormControl(''),
+      r1: new FormControl(''),
+      a2: new FormControl(''),
+      r2: new FormControl(''),
   });
+}
 
   ngOnInit(): void {
-
+    console.log(this.calcForm.get('a1'));
   }
   onSubmit(): void{
     // check if form input is a number. If true, set value for processing
