@@ -31,9 +31,6 @@ export class SnellCalcComponent implements OnInit {
   {name: 'Silicon', value: 3.44},
 ];
   ngOnInit(): void {
-    
-    console.log(this.materialsList);
-
   }
   onSubmit(): void{
     // check if form input is a number. If true, set value for processing
@@ -46,8 +43,6 @@ export class SnellCalcComponent implements OnInit {
         this.validator = 'all entries must be numerical' : this.calcForm.get('a2').value ;
         const r2 = isNaN(this.calcForm.get('r2').value) ?
         this.validator = 'all entries must be numerical' : this.calcForm.get('r2').value ;
-        console.log(r1);
-
 
         const isCalcA1 = (a1 === '') && (r1 !== '') && (a2 !== '') &&
     (r2 !== '');
@@ -82,7 +77,7 @@ export class SnellCalcComponent implements OnInit {
         if (isValidate){
       const test = this.calcServ.findA2(a1, r1, r2);
       if (test !== this.calcForm.get('a2').value){
-        this.validator = 'Invalid Inputs';
+        this.validator = 'This combination is not correct. Please delete one of the values you entered and try again';
       }
       if (math.round(test) === math.round(this.calcForm.get('a2').value)){
         this.validator = 'Correct!';
