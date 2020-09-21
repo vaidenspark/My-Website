@@ -10,7 +10,7 @@ import * as math from 'mathjs';
   styleUrls: ['./snell-calc.component.scss']
 })
 export class SnellCalcComponent implements OnInit {
-  validator = 'All entries must be numerical. Refractive Index should be between 0 and 2 Angles are in degrees, between 0 and 90';
+  validator = 'All entries must be numerical. Angles are in degrees, between 0 and 90';
   calcForm: FormGroup;
 
   constructor(private calcServ: CalcServService) {
