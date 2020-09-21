@@ -21,9 +21,19 @@ export class SnellCalcComponent implements OnInit {
       r2: new FormControl(''),
   });
 }
-
+ materialsList = [
+  {name: 'Vacuum', value: 1},
+  {name: 'Air', value: 1.000293},
+  {name: 'Carbon Dioxide', value: 1.001},
+  {name: 'Liquid Water', value: 1.330},
+  {name: 'Water Ice', value: 1.310 },
+  {name: 'Diamond', value: 2.417},
+  {name: 'Silicon', value: 3.44},
+];
   ngOnInit(): void {
-    console.log(this.calcForm.get('a1'));
+    
+    console.log(this.materialsList);
+
   }
   onSubmit(): void{
     // check if form input is a number. If true, set value for processing
@@ -36,6 +46,7 @@ export class SnellCalcComponent implements OnInit {
         this.validator = 'all entries must be numerical' : this.calcForm.get('a2').value ;
         const r2 = isNaN(this.calcForm.get('r2').value) ?
         this.validator = 'all entries must be numerical' : this.calcForm.get('r2').value ;
+        console.log(r1);
 
 
         const isCalcA1 = (a1 === '') && (r1 !== '') && (a2 !== '') &&

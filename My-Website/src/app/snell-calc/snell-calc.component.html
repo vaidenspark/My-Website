@@ -3,12 +3,13 @@
 <form id="form" [formGroup]="calcForm"  (ngSubmit)="onSubmit()">
 
     <mat-form-field id="a1" class="example-full-width">
-        <mat-label>Input</mat-label>
-        <input matInput placeholder="yeet" formControlName="a1">
+        <input matInput placeholder="Angle of Incidence" formControlName="a1">
     </mat-form-field>
 
     <mat-form-field id="r1">
-        <input matInput type="text" placeholder="Refractive index 1" formControlName="r1">
+        <mat-select placeholder="Refractive index 1" formControlName="r1">
+            <mat-option *ngFor='let material of materialsList' [value]='material.value'>{{material.name}}</mat-option>
+        </mat-select>
     </mat-form-field>
 
 
@@ -20,7 +21,9 @@
 
 
     <mat-form-field id="r2">
-        <input matInput type="text" placeholder="Refractive index 2" formControlName="r2">
+        <mat-select placeholder="Refractive index 2" formControlName="r2">
+            <mat-option *ngFor='let material of materialsList' [value]='material.value'>{{material.name}}</mat-option>
+        </mat-select>
     </mat-form-field>
 
 
