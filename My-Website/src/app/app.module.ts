@@ -11,6 +11,13 @@ import {FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material/material.module';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { PitchDetectComponent } from './pitch-detect/pitch-detect.component';
 
 
 
@@ -21,7 +28,8 @@ import { MaterialModule } from './material/material.module';
   declarations: [
     AppComponent,
     NavBarComponent,
-    SnellCalcComponent
+    SnellCalcComponent,
+    PitchDetectComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +37,15 @@ import { MaterialModule } from './material/material.module';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
-  providers: [],
+  providers: [AppComponent, SnellCalcComponent, PitchDetectComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { CalcServService } from '../shared/calc-serv.service';
 import * as math from 'mathjs';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class SnellCalcComponent implements OnInit {
   validator = 'All entries must be numerical. Angles are in degrees, between 0 and 90';
   calcForm: FormGroup;
 
-  constructor(private calcServ: CalcServService) {
+  constructor(private route: ActivatedRoute, private calcServ: CalcServService) {
     this.calcForm =  new FormGroup({
       a1: new FormControl(''),
       r1: new FormControl(''),
@@ -31,6 +32,9 @@ export class SnellCalcComponent implements OnInit {
   {name: 'Silicon', value: 3.44},
 ];
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.calcForm = params.calcForm;
+    });
   }
   onSubmit(): void{
     // check if form input is a number. If true, set value for processing
@@ -85,8 +89,9 @@ export class SnellCalcComponent implements OnInit {
 
     }
         if (allEmpty){
-      this.validator = 'Please enter Some values';
+      this.validator = 'Please enter some values';
     }
 
   }
 }
+

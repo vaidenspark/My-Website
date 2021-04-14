@@ -1,1 +1,13 @@
-<nav id='navbar'></nav>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/snell" routerLinkActive="active">Refraction Calculator</a>
+      <a mat-list-item routerLink="/pitch" routerLinkActive="active">Pitch Detector</a>      
+    </mat-nav-list>
+  </mat-sidenav>
+  
+</mat-sidenav-container>
